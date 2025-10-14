@@ -17,7 +17,7 @@ class Jeu:
                 print(f"Vous avez {self.__argent}$")
                 mise = int(input(f"Combien voulez vous miser : "))
                 clear()
-                if self.__argent - mise > 0:
+                if self.__argent - mise >= 0:
                     continuer = False
                     self.__argent -= mise
                     choix_signe = True
@@ -41,13 +41,21 @@ class Jeu:
             if self.__signe_sorti == choix:
                 self.__argent += mise * 2
             
-    
     def animation(self):
         """Simule un lancer de des
         """
         clear()
+        for i in range(30, 1, -1):
+            print(self.__signe[i % len(self.__signe)])
+            if i < 7:
+                sleep(0.3)
+            else:
+                sleep(0.1)
+            clear()
         print(self.__signe_sorti)
-        sleep(3)
+        sleep(2)
+        print(f"Le signe sorti est : {self.__signe_sorti}")
+        sleep(4)
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear') #Cleat le terminal
