@@ -15,7 +15,7 @@ class Jeu:
             while continuer:
                 clear()
                 print(f"Vous avez {self.__argent}$")
-                mise = int(input(f"Combien voulez vous miser : "))
+                mise = int(input(f'Combien voulez vous miser : '))
                 clear()
                 if self.__argent - mise >= 0:
                     continuer = False
@@ -34,13 +34,15 @@ class Jeu:
                 else:
                     print("Vous n'avez pas assez d'argent")
             clear()
-            print("Nous allons tirer les des")
+            print("Nous allons tirer les de")
             sleep(3)
             self.__signe_sorti = random.choice(self.__signe)
             self.animation()
             if self.__signe_sorti == choix:
                 self.__argent += mise * 2
-            
+        clear()
+        print("Vous n'avez plus d'argent")    
+        
     def animation(self):
         """Simule un lancer de des
         """
@@ -62,7 +64,7 @@ def clear():
 
 ################ Variable ################
 argent = 100
-signes = ["Policier", "Telephone", "Anneau"]
+signes = ["Policier", "Telephone", "Anneau", "Train", "Robinet", "Ampoule"]
 
 
 Partie_en_cour = Jeu(argent, signes)
