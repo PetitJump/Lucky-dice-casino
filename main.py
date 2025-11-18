@@ -3,6 +3,11 @@ import random
 import os
 from time import sleep
 
+################# Variable #################
+argent = 100
+signes = ["Policier", "Telephone", "Anneau", "Train", "Robinet", "Ampoule"]
+############################################
+
 class Jeu:
     def __init__(self, argent_base: int, signe: list[str]):
         self.__argent = argent_base
@@ -61,11 +66,6 @@ class Jeu:
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear') #Cleat le terminal
-
-################ Variable ################
-argent = 100
-signes = ["Policier", "Telephone", "Anneau", "Train", "Robinet", "Ampoule"]
-
 
 Partie_en_cour = Jeu(argent, signes)
 Partie_en_cour.run()
